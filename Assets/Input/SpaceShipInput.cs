@@ -29,7 +29,7 @@ public partial class @SpaceShipInput: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""ShipRotation"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""b13c3765-0b8a-47d5-b59b-c1d73e6f619b"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",

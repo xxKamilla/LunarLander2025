@@ -1,9 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Read fuel and Burn fuel.
+/// </summary>
 public class FuelTank : MonoBehaviour
 {
+    public float maxFuel;
+    public float currentFuel;
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {
