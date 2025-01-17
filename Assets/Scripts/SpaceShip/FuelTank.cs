@@ -22,7 +22,7 @@ public class FuelTank : MonoBehaviour
 
     // Update is called once per frame
    
-    bool BurnFuel(float burnRate)
+    public bool BurnFuel(float burnRate)
     { 
     
         if (currentFuel > 0)
@@ -34,10 +34,5 @@ public class FuelTank : MonoBehaviour
         {
             return false;
         }
-
-
     }
-
-
-
 }
