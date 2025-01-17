@@ -20,7 +20,7 @@ public class Thrusters : MonoBehaviour
     {
         ballGravity.thrust = transform.up;
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && fuelTank.currentFuel > 0)
         {
             ThrusterOn();
         }
@@ -35,6 +35,7 @@ public class Thrusters : MonoBehaviour
     {
         Debug.Log("ThrusterOn");
         ballGravity.thrust = transform.up * 20;
+        fuelTank.BroadcastMessage("BurnFuel", 0.1);
     }
 
     private void ThrusterOff()
@@ -42,5 +43,8 @@ public class Thrusters : MonoBehaviour
         Debug.Log("ThrusterOff");
         ballGravity.thrust = transform.up;
     }
+
+
+
 
 }
