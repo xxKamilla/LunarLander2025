@@ -23,6 +23,7 @@ public class Hull : MonoBehaviour
     public int lives;
 
     public BallGravity gravity;
+   
 
 
     private void Awake()
@@ -43,6 +44,7 @@ public class Hull : MonoBehaviour
         lives = 5; // should we add lives ?
     }
 
+  
 
   
 
@@ -88,19 +90,11 @@ public class Hull : MonoBehaviour
         int damageScale;
         //tested fall damage, seems to work but you need to invoke the function through somewhere else, like the gravity script
         //placeholder which works
-        if (dmg <= -20f)
+        if (dmg <= -20f | dmg >= 20f)
         {
             damageScale = 50;
         }
-        else if (dmg <= -10f)
-        {
-            damageScale = 20;
-        }
-        else if (dmg >= 20f)
-        {
-            damageScale = 50;
-        }
-        else if (dmg >= 10f)
+        else if (dmg <= -10f | dmg >= 10f)
         {
             damageScale = 20;
         }
@@ -127,6 +121,7 @@ public class Hull : MonoBehaviour
     {
         //TODO : Play death animation / explosion
         Debug.Log("You died!");
+        lives -= 1;
 
 
     }
