@@ -35,4 +35,19 @@ public class FuelTank : MonoBehaviour
             return false;
         }
     }
+    //public float FuelUpgrade(float upgradeAmount)
+    //{
+    //    if (shipUpgrade)
+    //    {
+    //        currentFuel = (currentFuel + upgradeAmount);
+    //    }
+        
+    
+    
+    //}
+        
+
+
+    
+
 }
