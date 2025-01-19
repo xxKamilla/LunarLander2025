@@ -13,6 +13,8 @@ public class Hull : MonoBehaviour
     /// main outline
     /// Update 18.01.2025 - Robin
     /// changing some of the methods
+    /// adding public to certain methods in order to access them from different scripts
+    /// FallDamage and ShipRepair
     /// </summary>
 
 
@@ -90,6 +92,8 @@ public class Hull : MonoBehaviour
         int damageScale;
         //tested fall damage, seems to work but you need to invoke the function through somewhere else, like the gravity script
         //placeholder which works
+
+        /*
         if (dmg <= -20f | dmg >= 20f)
         {
             damageScale = 50;
@@ -102,18 +106,26 @@ public class Hull : MonoBehaviour
         {
             damageScale = 0;
         }
+        */
+        damageScale = (int)dmg;
+
+        
+            if (damageScale < 0)
+        {
+            damageScale *= -1; 
+        }
 
 
         HealthLost(damageScale);
 
     }
 
-    void ShipRepair(int repair)
+    public void ShipRepair()
     {
         //TODO:  repair the ship 
         //landing pad ? or powerup in the air ?
         //placeholder
-        HealthGained(repair);
+        HealthGained(maxHealth/2); // having maxhealth/2 ensures that a powerup would scale regardless of the total value, hardcoding it to 20 or 50 would fall off if the total excedes a certain ammount
 
     }
 
@@ -121,10 +133,16 @@ public class Hull : MonoBehaviour
     {
         //TODO : Play death animation / explosion
         Debug.Log("You died!");
-        lives -= 1;
+        if (lives > 0)
+        {
+            lives -= 1;
+            remainingHealth = maxHealth; // resetting health after losing a life
+        }
 
 
     }
+
     
+
 
 }
