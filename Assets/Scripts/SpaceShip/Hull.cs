@@ -15,6 +15,8 @@ public class Hull : MonoBehaviour
     /// changing some of the methods
     /// adding public to certain methods in order to access them from different scripts
     /// FallDamage and ShipRepair
+    /// 
+    /// 
     /// </summary>
 
 
@@ -23,6 +25,7 @@ public class Hull : MonoBehaviour
     public int maxHealth;
     public int remainingHealth;
     public int lives;
+    public float fallGrace = 5f;
 
     public BallGravity gravity;
    
@@ -50,33 +53,26 @@ public class Hull : MonoBehaviour
 
   
 
-    void HealthLost(int damageTaken)     
+    void HealthHandler(int health)     
     {
         // handeling damage taken by checking if the player has more heatlth left
         // requires int input for the damage taken
+        //combining HealthLost and HealthGained to one function
 
-        if (remainingHealth <= 0)
-        { 
-            Death();
-        }
-
-        remainingHealth -= damageTaken;
-
-    }
-
-    void HealthGained(int healthGained)
-    {
-        // handeling damage taken by checking if the player has more heatlth left
-        // requires int input for the damage taken
+        remainingHealth += health;
 
         if (remainingHealth >= maxHealth)
         {
             remainingHealth = maxHealth;
-        }
-
-        remainingHealth += healthGained;
-
+        }            
+        
+        if (remainingHealth <= 0)
+        {
+            Death();
+        }        
     }
+
+    
 
     public void FallDamage()
     {
@@ -89,7 +85,8 @@ public class Hull : MonoBehaviour
         Vector3 speed = gravity.velocity;
 
         float dmg = speed.x + speed.z + speed.y;
-        int damageScale;
+
+
         //tested fall damage, seems to work but you need to invoke the function through somewhere else, like the gravity script
         //placeholder which works
 
@@ -107,17 +104,27 @@ public class Hull : MonoBehaviour
             damageScale = 0;
         }
         */
-        damageScale = (int)dmg;
 
-        
-            if (damageScale < 0)
+        //simplifying the code
+        if (dmg <= fallGrace & dmg >= -fallGrace) // adding some grace to prevent damage taken 
         {
-            damageScale *= -1; 
+            dmg = 0;
+        }
+        else if (dmg > 0) // making sure that the value is always positive
+        {
+            dmg *= -1;
+            dmg += fallGrace;
+        }
+        else
+        {
+            dmg += fallGrace;
         }
 
-
-        HealthLost(damageScale);
-
+        
+       
+        HealthHandler((int)dmg); // calling HealthLost method and passing the damage value, converting the float to int 
+        Debug.Log("Fall damage");
+        
     }
 
     public void ShipRepair()
@@ -125,8 +132,11 @@ public class Hull : MonoBehaviour
         //TODO:  repair the ship 
         //landing pad ? or powerup in the air ?
         //placeholder
-        HealthGained(maxHealth/2); // having maxhealth/2 ensures that a powerup would scale regardless of the total value, hardcoding it to 20 or 50 would fall off if the total excedes a certain ammount
 
+        // add a bool for a landingpad, canRepair and keypress would repair the ship at a cost of X score ?
+        int heal = (int)(maxHealth / 2);
+        HealthHandler(heal); // having maxhealth/2 ensures that a powerup would scale regardless of the total value, hardcoding it to 20 or 50 would fall off if the total excedes a certain ammount
+        Debug.Log("Ship repaired");
     }
 
     void Death()
@@ -142,7 +152,6 @@ public class Hull : MonoBehaviour
 
     }
 
-    
 
 
 }
