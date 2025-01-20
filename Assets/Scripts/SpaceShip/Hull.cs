@@ -33,7 +33,7 @@ public class Hull : MonoBehaviour
 
     private void Awake()
     {
-        gravity = GetComponent<BallGravity>();
+        gravity = GetComponent<BallGravity>(); // should be changed to the active gravity script
     }
 
 
