@@ -52,8 +52,8 @@ public class LanderController : MonoBehaviour
     private void ShipRotationStarted(InputAction.CallbackContext obj)
     {
         // changes the rotation based on the input vector2 value. 
-        yaw = obj.ReadValue<Vector2>().x;
-        pitch = obj.ReadValue<Vector2>().y;
+        yaw = obj.ReadValue<Vector2>().x * rotationTorque;
+        pitch = obj.ReadValue<Vector2>().y * rotationTorque;
     }
 
     private void ShipRotationCanceled(InputAction.CallbackContext obj)
