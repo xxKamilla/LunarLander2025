@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,7 @@ namespace SpaceShip
     {
         //private float mouseX;
         //private float mouseY;
+        public bool cameraFocus;
         public Transform cameraRotator;
         public Transform planet;
         private Vector3 targetRotation;
@@ -23,9 +25,15 @@ namespace SpaceShip
         private void Update()
         {
             transform.position = Vector3.Lerp(transform.position, spaceShip.position, followSpeed * Time.deltaTime); 
-
-            Vector3 surfaceDirection = planet.position - transform.position;
-            transform.forward = surfaceDirection;
+            if (cameraFocus == true)
+            {
+                Vector3 surfaceDirection = planet.position - transform.position;
+                transform.forward = surfaceDirection;
+            }
+            else
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 1 * Time.deltaTime);
+            }
 
             currentRotation = Vector3.Lerp(currentRotation, targetRotation , 0.1f * Time.deltaTime);
             cameraRotator.transform.localEulerAngles = currentRotation;
