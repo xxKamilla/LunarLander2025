@@ -53,8 +53,11 @@ public class Hull : MonoBehaviour
 
   
 
-    void HealthHandler(int health)     
+    public void HealthHandler(int health = 0)     // setting default value to 0 to prevent errors if you call the function without a value
     {
+
+       
+
         // handeling damage taken by checking if the player has more heatlth left
         // requires int input for the damage taken
         //combining HealthLost and HealthGained to one function
@@ -142,13 +145,21 @@ public class Hull : MonoBehaviour
     void Death()
     {
         //TODO : Play death animation / explosion
-        Debug.Log("You died!");
-        if (lives > 0)
+        if (remainingHealth <= 0 & lives ==0)
         {
-            lives -= 1;
-            remainingHealth = maxHealth; // resetting health after losing a life
-        }
 
+            Debug.Log("Game Over");
+        }
+        else
+        {
+            Debug.Log("You died!");
+
+            if (lives > 0)
+            {
+                lives -= 1;
+                remainingHealth = maxHealth; // resetting health after losing a life
+            }
+        }
 
     }
 
