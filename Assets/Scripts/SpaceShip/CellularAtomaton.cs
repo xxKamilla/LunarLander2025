@@ -16,9 +16,11 @@ public class CellularAtomaton : MonoBehaviour
     
     public byte ruleNumb = 0;
     public int[] inArray;
+    public int[] outArray;
     public string[] pattern = { "111", "110", "101", "100", "011", "010", "001", "000" };
     public int generation;
     public int gridWidth;
+    public string strCompare;
     private void Start()
     {
         inArray = ByteToRuleConverter(ruleNumb);
@@ -30,6 +32,25 @@ public class CellularAtomaton : MonoBehaviour
         //TODO: create the Grid generation
         // generate a string with a length of 3 , like "011" "111" ect
         //call objectplacement
+        int[] nextGen = new int[gridWidth];
+
+        for (int grid = 0; grid < gridWidth; grid++)
+        {
+            if (grid - 1 < 0)
+            {
+                strCompare = "" + inArray[gridWidth] + inArray[grid] + inArray[grid + 1];
+            }
+            else if (grid + 1 > gridWidth)
+            {
+                strCompare = "" + inArray[grid - 1] + inArray[grid] + inArray[0];
+
+            }
+            else
+            {
+                strCompare = "" + inArray[grid - 1] + inArray[grid] + inArray[grid +1];
+            }
+            nextGen[grid] = Rule(strCompare);
+        }
     }
 
     void ObjectPlacement()
@@ -53,10 +74,10 @@ public class CellularAtomaton : MonoBehaviour
         return bits;
     }
 
-    public int Rule(string rightMiddleLeft)
+    public int Rule(string lmr)
     {
         //converting input to string
-        string test = rightMiddleLeft;
+        string test = lmr;
 
 
         //current pattern	111	110	101	100	011	010	001	000
@@ -67,7 +88,7 @@ public class CellularAtomaton : MonoBehaviour
         //using a string array for verifying the values
        
 
-        for (int i  = 0; i < pattern.Length;) 
+        for (int i  = 0; i < pattern.Length;) // could go for a foreach loop, but then manually decleare an int variable for the count
         {
             //Debug.Log(pattern[i] + " " + test + " " + temp);
             if (pattern[i] == test ) return inArray[i]; 
