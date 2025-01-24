@@ -5,6 +5,6 @@ using UnityEngine;
         public float gravity;
         private void OnTriggerEnter(Collider other)
         {
-            other.GetComponent<BallGravity>().GRAVITY_CONSTANT = gravity;
+            other.GetComponent<Gravity>().GRAVITY_CONSTANT = gravity;
         }
     }

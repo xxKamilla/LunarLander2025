@@ -27,13 +27,13 @@ public class Hull : MonoBehaviour
     public int lives;
     public float fallGrace = 5f;
 
-    public BallGravity gravity;
+    public Gravity gravity;
    
 
 
     private void Awake()
     {
-        gravity = GetComponent<BallGravity>(); // should be changed to the active gravity script
+        gravity = GetComponent<Gravity>(); // should be changed to the active gravity script
     }
 
 

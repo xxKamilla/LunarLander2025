@@ -6,8 +6,9 @@ using UnityEngine.InputSystem;
 
 public class Thrusters : MonoBehaviour
 {
-    public BallGravity ballGravity;
+    public Gravity gravity;
     public FuelTank fuelTank;
+    public float fuelEfficiency = 1f;
     public Vector3 upDirection;
     
     public float currentThrust;
@@ -21,7 +22,7 @@ public class Thrusters : MonoBehaviour
 
     private void Awake()
     {
-        ballGravity = GetComponent<BallGravity>();
+        gravity = GetComponent<Gravity>();
         fuelTank = GetComponent<FuelTank>();
     }
 
@@ -38,10 +39,10 @@ public class Thrusters : MonoBehaviour
         ParticleSystem.EmissionModule psBSmokeEmission = bSmokePS.emission;
 
 
-        ballGravity.thrust = transform.up;
+        gravity.thrust = transform.up;
         float targetThrust = 0f;
 
-        if (Input.GetKey(KeyCode.Space) && fuelTank.BurnFuel(0.1f * Time.deltaTime))
+        if (Input.GetKey(KeyCode.Space) && fuelTank.BurnFuel(fuelEfficiency * Time.deltaTime))
         {
             targetThrust = maxThrust;
  
@@ -69,7 +70,7 @@ public class Thrusters : MonoBehaviour
             psBSmokeEmission.rateOverTime = currentThrust / maxThrust * 50;
         }
 
-        ballGravity.thrust = transform.up * currentThrust;
+        gravity.thrust = transform.up * currentThrust;
 
     }
 
