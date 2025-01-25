@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{8950998d-cd61-4342-a97d-24f5ef81cedd}">
 		<property name="name">
-			<value>446764__maxx222__rocketthrustmaxx</value>
+			<value>Main Thruster</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
