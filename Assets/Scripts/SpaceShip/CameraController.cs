@@ -18,11 +18,17 @@ namespace SpaceShip
         public SpaceShipInput input;
         public Transform spaceShip;
         public float followSpeed = 1.0f;
+        public float mouseSensitivity = 1;
+
         private void Awake()
         {
             input = new SpaceShipInput();
+
+            #if !UNITY_EDITOR
+            Cursor.lockState = CursorLockMode.Confined;
+            #endif
         }
-        private void Update()
+        private void LateUpdate()
         {
             transform.position = Vector3.Lerp(transform.position, spaceShip.position, followSpeed * Time.deltaTime); 
             if (cameraFocus == true)
@@ -35,9 +41,9 @@ namespace SpaceShip
                 transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 1 * Time.deltaTime);
             }
 
-            currentRotation = Vector3.Lerp(currentRotation, targetRotation , 0.1f * Time.deltaTime);
+            currentRotation = Vector3.Lerp(currentRotation, targetRotation * mouseSensitivity , 10f * Time.deltaTime);
             cameraRotator.transform.localEulerAngles = currentRotation;
-            
+            Debug.Log(targetRotation);
         }
 
         private void OnEnable()
@@ -45,15 +51,20 @@ namespace SpaceShip
             input.Enable();
             input.Gameplay.Enable();
             input.Gameplay.CameraRotation.performed += CameraRotation;
+            input.Gameplay.CameraRotation.canceled += CancelCameraRotation;
         }
-        private void CameraRotation(InputAction.CallbackContext MouseDelta)
+
+        private void CancelCameraRotation(InputAction.CallbackContext obj)
         {
-            targetRotation.y += MouseDelta.ReadValue<Vector2>().x;
-            targetRotation.x += MouseDelta.ReadValue<Vector2>().y;
-            
+            Mouse.current.WarpCursorPosition(new Vector2(Screen.width / 2, Screen.height / 2));
         }
 
-
+        private void CameraRotation(InputAction.CallbackContext mouseDelta)
+        {
+            
+            targetRotation.y += mouseDelta.ReadValue<Vector2>().x;
+            targetRotation.x += mouseDelta.ReadValue<Vector2>().y;
+        }
     }
     
 

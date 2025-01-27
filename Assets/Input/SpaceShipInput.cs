@@ -40,7 +40,7 @@ public partial class @SpaceShipInput: IInputActionCollection2, IDisposable
                     ""name"": ""CameraRotation"",
                     ""type"": ""Value"",
                     ""id"": ""c7d20b60-746e-4ce6-acce-552928975e4c"",
-                    ""expectedControlType"": ""Delta"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
