@@ -2,6 +2,7 @@ using System;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace SpaceShip
 {
@@ -13,20 +14,24 @@ namespace SpaceShip
         public bool cameraFocus;
         public Transform cameraRotator;
         public Transform planet;
+        public Camera cam;
         private Vector3 targetRotation;
         private Vector3 currentRotation; 
+        
+        private Vector3 currentZoom;
+        private Vector3 targetZoom;
+        
         public SpaceShipInput input;
         public Transform spaceShip;
         public float followSpeed = 1.0f;
-        public float mouseSensitivity = 1;
+        [Range(0.01f, 1f)] public float mouseSensitivity = 0.5f;
 
         private void Awake()
         {
             input = new SpaceShipInput();
 
-            #if !UNITY_EDITOR
-            Cursor.lockState = CursorLockMode.Confined;
-            #endif
+            currentZoom = cam.transform.localPosition;
+            targetZoom = cam.transform.localPosition;
         }
         private void LateUpdate()
         {
@@ -38,12 +43,18 @@ namespace SpaceShip
             }
             else
             {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, 1 * Time.deltaTime);
+                transform.rotation = Quaternion.Lerp(transform.rotation, new Quaternion(), 1 * Time.deltaTime);
             }
 
-            currentRotation = Vector3.Lerp(currentRotation, targetRotation * mouseSensitivity , 10f * Time.deltaTime);
+            currentRotation = Vector3.Lerp(currentRotation, targetRotation , 7f * Time.deltaTime);
+            
+            currentRotation.x = Mathf.Clamp(currentRotation.x, -45f, 45f);
+            currentRotation.y = Mathf.Clamp(currentRotation.y, -45f, 45f);
+            
             cameraRotator.transform.localEulerAngles = currentRotation;
-            Debug.Log(targetRotation);
+            
+            currentZoom = Vector3.Lerp(currentZoom, targetZoom, 3f * Time.deltaTime);
+            cam.transform.localPosition = currentZoom;
         }
 
         private void OnEnable()
@@ -51,19 +62,19 @@ namespace SpaceShip
             input.Enable();
             input.Gameplay.Enable();
             input.Gameplay.CameraRotation.performed += CameraRotation;
-            input.Gameplay.CameraRotation.canceled += CancelCameraRotation;
+            input.Gameplay.Zoom.performed += ZoomOnPerformed;
         }
 
-        private void CancelCameraRotation(InputAction.CallbackContext obj)
+        private void ZoomOnPerformed(InputAction.CallbackContext zoom)
         {
-            Mouse.current.WarpCursorPosition(new Vector2(Screen.width / 2, Screen.height / 2));
+            targetZoom.z += zoom.ReadValue<Vector2>().y * 0.1f;
+            targetZoom.z = Mathf.Clamp(targetZoom.z, -500, -2); //To avoid zooming inside the player or too far away.
         }
 
         private void CameraRotation(InputAction.CallbackContext mouseDelta)
         {
-            
-            targetRotation.y += mouseDelta.ReadValue<Vector2>().x;
-            targetRotation.x += mouseDelta.ReadValue<Vector2>().y;
+            targetRotation.y += mouseDelta.ReadValue<Vector2>().x  * mouseSensitivity;
+            targetRotation.x += mouseDelta.ReadValue<Vector2>().y  * mouseSensitivity;
         }
     }
     
