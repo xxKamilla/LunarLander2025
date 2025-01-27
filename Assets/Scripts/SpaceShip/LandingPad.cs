@@ -11,7 +11,8 @@ public class LandingPad : MonoBehaviour
     public bool test = false;
     public Collider ship;
 
-    private void Update()
+  /* //Commenting out the update function as it was only used for debugging
+     private void Update()
     {
         if (test)
         {
@@ -19,7 +20,8 @@ public class LandingPad : MonoBehaviour
             test = false; //for debugging
         }
     }
-    void Check(Collider other) // move this to private void OnTriggerEnter(Collider other)
+  */
+   public void Check(Collider other) // move this to private void OnTriggerEnter(Collider other)
     {
         center = transform.position;
         landing = other.transform.position;
