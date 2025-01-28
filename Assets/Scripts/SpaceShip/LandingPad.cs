@@ -21,7 +21,7 @@ public class LandingPad : MonoBehaviour
         }
     }
   */
-   public void Check(Collider other) // move this to private void OnTriggerEnter(Collider other)
+   public int Check(Collider other) // move this to private void OnTriggerEnter(Collider other)
     {
         center = transform.position;
         landing = other.transform.position;
@@ -43,6 +43,22 @@ public class LandingPad : MonoBehaviour
         }
        
         Debug.Log("distance from center = " + (int)precision);
+
+        //TODO: Send Score to GameManager
+        return (int)precision;
     }
-    
+
+
+    //Adding a way to trigger the check if when the player lands 
+    //adding restrictions incase of a different object hitting the pad
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag =="Player") // adding a check for the player to make sure that it deosnt trigger unless the player lands
+        { 
+            Check(other); 
+        }
+        
+    }
+
+
 }

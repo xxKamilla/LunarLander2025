@@ -77,7 +77,7 @@ public class CellularAtomaton : MonoBehaviour
     public int Rule(string lmr)
     {
         //converting input to string
-        string test = lmr;
+        
 
 
         //current pattern	111	110	101	100	011	010	001	000
@@ -91,7 +91,7 @@ public class CellularAtomaton : MonoBehaviour
         for (int i  = 0; i < pattern.Length;) // could go for a foreach loop, but then manually decleare an int variable for the count
         {
             //Debug.Log(pattern[i] + " " + test + " " + temp);
-            if (pattern[i] == test ) return inArray[i]; 
+            if (pattern[i] == lmr ) return inArray[i]; 
            
         }
         /*
