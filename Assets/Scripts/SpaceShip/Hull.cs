@@ -15,7 +15,7 @@ public class Hull : MonoBehaviour
     /// changing some of the methods
     /// adding public to certain methods in order to access them from different scripts
     /// FallDamage and ShipRepair
-    /// 
+    /// Update
     /// 
     /// </summary>
 

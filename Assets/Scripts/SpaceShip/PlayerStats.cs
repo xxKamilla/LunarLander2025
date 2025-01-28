@@ -50,7 +50,7 @@ public class PlayerStats : MonoBehaviour
             {"healthMax",hull.maxHealth},
             {"fuelMax" , fuelTank.maxFuel },
             {"lives" , hull.lives },
-            {"score", 0 }, //TODO: get score from script
+            {"score", 0 }, //TODO: get score from script HighScore / planet
             {"health", hull.remainingHealth},
             {"fuel" , fuelTank.currentFuel}
 

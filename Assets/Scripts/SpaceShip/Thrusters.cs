@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 /// <summary>
 /// Ship thrusters and input.
+/// 
+/// Update 27.01.2025 - Robin Adding default values and minimum values for:
+/// thrustBuildRate and  thrustDecayRate
 /// </summary>
 
 public class Thrusters : MonoBehaviour
@@ -13,8 +16,8 @@ public class Thrusters : MonoBehaviour
     
     public float currentThrust;
     public float maxThrust;
-    public float thrustBuildRate;
-    public float thrustDecayRate;
+    [Min(1)]public float thrustBuildRate  = 5f; //default value 5, min value 1
+    [Min(1)]public float thrustDecayRate = 5f;  //default value 5, min value 1
 
     public ParticleSystem firePS;
     public ParticleSystem smokePS;
