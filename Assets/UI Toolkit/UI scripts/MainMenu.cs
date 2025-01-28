@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-//using UnityEngine.SceneManagment;
-
+using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     private Button _playButton;
@@ -32,7 +31,7 @@ public class MainMenu : MonoBehaviour
     private void OnPlayButtonClick()
     {
         Debug.Log("Play Button Clicked!");
-        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 
     private void OnOptionsButtonClick()
