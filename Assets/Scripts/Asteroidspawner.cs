@@ -28,10 +28,10 @@ public class Asteroidspawner : MonoBehaviour
             GameObject meteorPrefab = meteorPrefabs[randomIndex];
 
             
-            float orbitRadius = Random.Range(orbitRadiusMin, orbitRadiusMax);
-            float orbitSpeed = Random.Range(orbitSpeedMin, orbitSpeedMax);
+            float orbitRadius = Random.Range(orbitRadiusMin, orbitRadiusMax);//random radius the meteor orbits
+            float orbitSpeed = Random.Range(orbitSpeedMin, orbitSpeedMax);//random speed the meteor have
 
-            //random spawn points
+            //random spawn points inside of the orbitRadius Min-Max
             float angle = Random.Range(25f, 9 * Mathf.PI);
             Vector3 initialPosition = planetTransform.position + new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * orbitRadius;
 

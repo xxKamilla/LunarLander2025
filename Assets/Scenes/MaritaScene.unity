@@ -168,7 +168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meteorPrefabs:
-  - {fileID: 6070123981375417075, guid: 22a01d35866567f49b2101da0d89e756, type: 3}
+  - {fileID: 6425044775717044792, guid: c62f7eee8cbc9dd40aac84370d7b960e, type: 3}
+  - {fileID: 2495328700162976995, guid: f16e01138f6d3c246937e9feea502eb7, type: 3}
+  - {fileID: 6655093196466350053, guid: 2e460c788928c5f4aa25d588e85eb27b, type: 3}
+  - {fileID: 1897017947406171328, guid: 56ddda17a65dba64cad67c44f7d4526e, type: 3}
   planetTransform: {fileID: 1183019195}
   spawnInterval: 3
   orbitRadiusMin: 10
@@ -189,7 +192,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meteorPrefabs:
-  - {fileID: 6070123981375417075, guid: 22a01d35866567f49b2101da0d89e756, type: 3}
+  - {fileID: 6425044775717044792, guid: c62f7eee8cbc9dd40aac84370d7b960e, type: 3}
+  - {fileID: 2495328700162976995, guid: f16e01138f6d3c246937e9feea502eb7, type: 3}
+  - {fileID: 6655093196466350053, guid: 2e460c788928c5f4aa25d588e85eb27b, type: 3}
+  - {fileID: 1897017947406171328, guid: 56ddda17a65dba64cad67c44f7d4526e, type: 3}
   planetTransform: {fileID: 1183019195}
   spawnInterval: 3
   orbitRadiusMin: 20
