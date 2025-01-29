@@ -22,6 +22,8 @@ public class BallGravitySphere : MonoBehaviour
 
     public float timeScalar = 1.0f;
 
+    public bool onGround = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,9 @@ public class BallGravitySphere : MonoBehaviour
     void handleMovement()
     {
 
+        if (onGround)
+            return;
+
         //set the rate of integration, which is (almost) equivalent to
         //explosion by mass for impulse calc. problem is, gravity
         //is no longer a constant. but for gameplay, maybe not an issue?
@@ -45,9 +50,9 @@ public class BallGravitySphere : MonoBehaviour
         Vector3 curPos = transform.localPosition;  //begin position
 
         //reset final force to the initial force of gravity
-        finalForce.Set(0, GRAVITY_CONSTANT * mass, 0);
+        finalForce.Set(0, 0, GRAVITY_CONSTANT * mass);
         
-        //finalForce += thrust; //@Bjorn, so how do we handle this with rotations?
+        finalForce += thrust;  //@Bjorn, so how do we handle this with rotations?
 
 
         acceleration = finalForce / mass;
