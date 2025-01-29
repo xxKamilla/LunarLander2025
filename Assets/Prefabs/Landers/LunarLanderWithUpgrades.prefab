@@ -174,10 +174,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3fc0f982e27eb16469fec0304919b26b,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7934127825576672863}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3fc0f982e27eb16469fec0304919b26b,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8591493243857765876}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3fc0f982e27eb16469fec0304919b26b,
         type: 3}
@@ -198,28 +194,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6408945814078125982}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7934127825576672863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6066436190525409999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b92d7f661d85644582214ac659502f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planet: {fileID: 0}
-  GRAVITY_CONSTANT: -9.8
-  velocity: {x: 0, y: 0, z: 0}
-  acceleration: {x: 0, y: 0, z: 0}
-  thrust: {x: 0, y: 0, z: 0}
-  finalForce: {x: 0, y: 0, z: 0}
-  mass: 1
-  height: 0
-  impulse: {x: 0, y: 0, z: 0}
-  timeScalar: 1
 --- !u!114 &8591493243857765876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f592837d4b42ac4fbaea134636f9d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballGravity: {fileID: 7934127825576672863}
+  gravity: {fileID: 0}
   fuelTank: {fileID: 6421734955205898320}
   fuelEfficiency: 1
   upDirection: {x: 0, y: 0, z: 0}
