@@ -186,6 +186,73 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EscPressed: 0
   GamePause: 0
+--- !u!1 &1094731440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1094731441}
+  - component: {fileID: 1094731443}
+  - component: {fileID: 1094731442}
+  m_Layer: 0
+  m_Name: Atmosphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1094731441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094731440}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1843904237}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1094731442
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094731440}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.25
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1094731443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094731440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4238a2cadc0c4429f5e7db0c0c4a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drag: 0.05
 --- !u!1 &1160447543
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planet: {fileID: 1843904238}
-  GRAVITY_CONSTANT: -9.8
+  GRAVITY_CONSTANT: -2
   velocity: {x: 0, y: 0, z: 0}
   acceleration: {x: 0, y: 0, z: 0}
   thrust: {x: 0, y: 0, z: 0}
@@ -412,9 +479,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 57.3, z: 0}
-  m_LocalScale: {x: 14.804715, y: 14.804715, z: 14.804715}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1094731441}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1843904238
@@ -612,6 +680,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3326651441179170429, guid: bdf812d52d9232a4b993ee0e73bdafca,
+        type: 3}
+      propertyPath: InheritVelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3326651441179170429, guid: bdf812d52d9232a4b993ee0e73bdafca,
+        type: 3}
+      propertyPath: InheritVelocityModule.m_Curve.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268694903973358182, guid: bdf812d52d9232a4b993ee0e73bdafca,
+        type: 3}
+      propertyPath: InheritVelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268694903973358182, guid: bdf812d52d9232a4b993ee0e73bdafca,
+        type: 3}
+      propertyPath: InheritVelocityModule.m_Curve.scalar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5715692498424075856, guid: bdf812d52d9232a4b993ee0e73bdafca,
         type: 3}
       propertyPath: gravity
@@ -620,17 +708,17 @@ PrefabInstance:
     - target: {fileID: 5715692498424075856, guid: bdf812d52d9232a4b993ee0e73bdafca,
         type: 3}
       propertyPath: maxThrust
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5715692498424075856, guid: bdf812d52d9232a4b993ee0e73bdafca,
         type: 3}
       propertyPath: thrustBuildRate
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5715692498424075856, guid: bdf812d52d9232a4b993ee0e73bdafca,
         type: 3}
       propertyPath: thrustDecayRate
-      value: 2.74
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6783959284057769253, guid: bdf812d52d9232a4b993ee0e73bdafca,
         type: 3}
@@ -672,8 +760,17 @@ PrefabInstance:
       propertyPath: timeScalar
       value: 0.1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8138104152261339713, guid: bdf812d52d9232a4b993ee0e73bdafca, type: 3}
+    - target: {fileID: 8579387208446542460, guid: bdf812d52d9232a4b993ee0e73bdafca,
+        type: 3}
+      propertyPath: InheritVelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579387208446542460, guid: bdf812d52d9232a4b993ee0e73bdafca,
+        type: 3}
+      propertyPath: InheritVelocityModule.m_Curve.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

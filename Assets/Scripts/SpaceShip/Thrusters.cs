@@ -42,7 +42,7 @@ public class Thrusters : MonoBehaviour
         ParticleSystem.EmissionModule psBSmokeEmission = bSmokePS.emission;
 
         //<JK> disable
-        //gravity.thrust = transform.up;
+        gravity.thrust = transform.up;
         float targetThrust = 0f;
 
         if (Input.GetKey(KeyCode.Space) && fuelTank.BurnFuel(fuelEfficiency * Time.deltaTime))
@@ -73,7 +73,7 @@ public class Thrusters : MonoBehaviour
             psBSmokeEmission.rateOverTime = currentThrust / maxThrust * 50;
         }
         //<JK>
-        //gravity.thrust = transform.up * currentThrust;
+        gravity.thrust = transform.up * currentThrust;
 
     }
 

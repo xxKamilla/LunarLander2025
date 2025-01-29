@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
 /// <summary>
 /// This is Bjørn's new gravity, copied from Johns BallGravity.
 /// This just points the gravity towards a planet instead of just down on the Y-axis.
 /// </summary>
-public class Gravity : MonoBehaviour
+public class Gravity : MonoBehaviour, IPhysicsObject
 {
 
     public Planet planet;
@@ -22,6 +23,7 @@ public class Gravity : MonoBehaviour
 
     public float mass = 1.0f;
 
+    public float Drag { get; set; } = 0.01f; //Drag for air resistance and such.
     public float height = 0;
 
     public Vector3 impulse = new Vector3(0, 0, 0);
@@ -66,12 +68,13 @@ public class Gravity : MonoBehaviour
         
         finalForce += thrust;
         
-        finalForce -= new Vector3(1f, 1f, 1f);
+        Vector3 drag = -velocity.normalized * (velocity.sqrMagnitude * Drag);
         
         acceleration = finalForce / mass;
-        velocity += acceleration * forceDeltaTime;
+        velocity += (acceleration + drag) * forceDeltaTime;
         velocity += impulse;
-
+        
+        
         //move the object
         transform.position += velocity * forceDeltaTime;
 
@@ -87,5 +90,4 @@ public class Gravity : MonoBehaviour
         thrust *= 0;
        
     }
-
 }
