@@ -13,40 +13,6 @@ MonoBehaviour:
   m_Name: PrefabPalette-Default
   m_EditorClassIdentifier: 
   prefabs:
-  - gameObject: {fileID: 8890794094306581453, guid: 90c1ee09aa0c1d34e8db00bffd15e5a7,
-      type: 3}
-    settings:
-      m_Strength: 100
-      m_RotationRangeMin: {x: 0, y: 0, z: 0}
-      m_RotationRangeMax: {x: 7.696552, y: 8.193104, z: 7.696552}
-      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
-      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 1.5, y: 1.5}
-      m_UniformBool: 1
-      m_XRotationBool: 1
-      m_YRotationBool: 1
-      m_ZRotationBool: 1
-      m_XScaleBool: 1
-      m_YScaleBool: 1
-      m_ZScaleBool: 0
-    name: GrassCluster
-  - gameObject: {fileID: 1354252710674903145, guid: e26b4cedbe58e284090e76796cfb48c4,
-      type: 3}
-    settings:
-      m_Strength: 100
-      m_RotationRangeMin: {x: 0, y: 0, z: 0}
-      m_RotationRangeMax: {x: 3.2275863, y: 0, z: 0}
-      m_ScaleRangeMin: {x: 0.12413793, y: 0.19310345, z: 0.18620689}
-      m_ScaleRangeMax: {x: 0.12413793, y: 0.19310345, z: 0.18620689}
-      m_UniformScale: {x: 2, y: 2}
-      m_UniformBool: 1
-      m_XRotationBool: 0
-      m_YRotationBool: 0
-      m_ZRotationBool: 0
-      m_XScaleBool: 0
-      m_YScaleBool: 0
-      m_ZScaleBool: 0
-    name: WidePlantCluster333
   - gameObject: {fileID: 6592597792067191409, guid: e7297325b344cd04f87a10d2e79eda53,
       type: 3}
     settings:
@@ -64,23 +30,6 @@ MonoBehaviour:
       m_YScaleBool: 0
       m_ZScaleBool: 0
     name: WhiteFlower
-  - gameObject: {fileID: 1354252710674903145, guid: e26b4cedbe58e284090e76796cfb48c4,
-      type: 3}
-    settings:
-      m_Strength: 18.82
-      m_RotationRangeMin: {x: 0, y: 0, z: 0}
-      m_RotationRangeMax: {x: 0, y: 0, z: 0}
-      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
-      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 2, y: 2}
-      m_UniformBool: 1
-      m_XRotationBool: 0
-      m_YRotationBool: 0
-      m_ZRotationBool: 0
-      m_XScaleBool: 0
-      m_YScaleBool: 0
-      m_ZScaleBool: 0
-    name: WidePlantCluster
   - gameObject: {fileID: 384163508269628993, guid: 243da3d987125e04d8e9d3eaa7add1c0,
       type: 3}
     settings:
@@ -115,40 +64,6 @@ MonoBehaviour:
       m_YScaleBool: 0
       m_ZScaleBool: 0
     name: Player
-  - gameObject: {fileID: 919132149155446097, guid: 891b52f8eb01e9b4199b557091cddd94,
-      type: 3}
-    settings:
-      m_Strength: 59.910645
-      m_RotationRangeMin: {x: 0, y: 0, z: 0}
-      m_RotationRangeMax: {x: 0, y: 0, z: 0}
-      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
-      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 100, y: 100}
-      m_UniformBool: 1
-      m_XRotationBool: 0
-      m_YRotationBool: 0
-      m_ZRotationBool: 0
-      m_XScaleBool: 0
-      m_YScaleBool: 0
-      m_ZScaleBool: 0
-    name: GrassPlanes
-  - gameObject: {fileID: 919132149155446097, guid: 660de7291df16654e93bd7ecd8f37447,
-      type: 3}
-    settings:
-      m_Strength: 42.03042
-      m_RotationRangeMin: {x: 0, y: 0, z: 0}
-      m_RotationRangeMax: {x: 0, y: 0, z: 0}
-      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
-      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 1, y: 1}
-      m_UniformBool: 1
-      m_XRotationBool: 0
-      m_YRotationBool: 0
-      m_ZRotationBool: 0
-      m_XScaleBool: 0
-      m_YScaleBool: 0
-      m_ZScaleBool: 0
-    name: GrassCluster
   - gameObject: {fileID: 919132149155446097, guid: 4536ff8d673ba634cb9f5728acbe24fa,
       type: 3}
     settings:
