@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.TerrainTools;
 using UnityEngine;
 
 public class PadTouchdown : MonoBehaviour
