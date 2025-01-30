@@ -30,15 +30,15 @@ public class Meteorbehaviour : MonoBehaviour
             float orbitRadius = Random.Range(orbitRadiusMin, orbitRadiusMax);
             float orbitSpeed = Random.Range(orbitSpeedMin, orbitSpeedMax);
 
-            // random spawn points
+            // random spawn points within the orbitRadius Min and Max range
             float angle = Random.Range(0f, 5 * Mathf.PI);
             Vector3 initialPosition = planetTransform.position + new Vector3(Mathf.Cos(angle), 1f, Mathf.Sin(angle)) * orbitRadius;
 
             
-            GameObject meteor = Instantiate(meteorPrefab, initialPosition, Quaternion.identity);
+            GameObject meteor = Instantiate(meteorPrefab, initialPosition, Quaternion.identity); //spawns the meteor
 
             
-            Vector3 directionToPlanet = (planetTransform.position - meteor.transform.position).normalized;
+            Vector3 directionToPlanet = (planetTransform.position - meteor.transform.position).normalized;//meteors going towards the planet
 
             
             StartCoroutine(OrbitAndDestroy(meteor, orbitSpeed, orbitRadius, directionToPlanet));
