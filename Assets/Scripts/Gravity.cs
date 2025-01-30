@@ -22,20 +22,14 @@ public class Gravity : MonoBehaviour, IPhysicsObject
     public Vector3 finalForce = new Vector3(0, 0, 0);           //final force to be applied this frame
 
     public float mass = 1.0f;
-
-    public float Drag { get; set; } = 0.01f; //Drag for air resistance and such.
+    
+    [Tooltip("This is to simulate air Resistance")]public float Drag { get; set; } = 0.01f; //Drag for air resistance and such.
     public float height = 0;
 
     public Vector3 impulse = new Vector3(0, 0, 0);
 
     public float timeScalar = 1.0f;
-    
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
