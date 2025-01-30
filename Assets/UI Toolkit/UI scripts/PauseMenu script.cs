@@ -9,7 +9,7 @@ public class PauseMenuscript : MonoBehaviour
     public bool EscPressed = false;
     public bool GamePause = false;
 
-    //private VisualElement _PauseUI;
+    private VisualElement _PauseUI;
     private Button _continueButton;
     private Button _mainmenuButton;
     private Button _quitButton;
@@ -18,7 +18,7 @@ public class PauseMenuscript : MonoBehaviour
     void Start ()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
-        //_PauseUI = root.Q<VisualElement>("PauseFrame");
+        _PauseUI = root.Q<VisualElement>("PauseFrame");
        
 
         _continueButton = root.Q<Button>("ContinueButton");
@@ -26,7 +26,7 @@ public class PauseMenuscript : MonoBehaviour
         _quitButton = root.Q<Button>("QuitButton");
         _optionsButton = root.Q<Button>("OptionsButton");
 
-        //_PauseUI.style.display = DisplayStyle.None;
+        _PauseUI.style.display = DisplayStyle.None;
         _continueButton.clicked += OnContinueButtonClick;
         _mainmenuButton.clicked += OnMainMenuButtonClick;
         _quitButton.clicked += OnQuitButtonclick;
@@ -45,7 +45,7 @@ public class PauseMenuscript : MonoBehaviour
                 Debug.Log("Game is now unpaused");
                 Time.timeScale = 1;
                 GamePause = false;
-                //_PauseUI.style.display = DisplayStyle.None;
+                _PauseUI.style.display = DisplayStyle.None;
             }
 
             else
@@ -53,7 +53,7 @@ public class PauseMenuscript : MonoBehaviour
                 Debug.Log("You are now Paused");
                 Time.timeScale = 0;
                 GamePause = true;
-                //_PauseUI.style.display = DisplayStyle.Flex;
+                _PauseUI.style.display = DisplayStyle.Flex;
             }
         }
     }
@@ -65,7 +65,7 @@ public class PauseMenuscript : MonoBehaviour
         Debug.Log("Game is now unpaused");
         Time.timeScale = 1;
         GamePause = false;
-        //_PauseUI.style.display = DisplayStyle.None;
+        _PauseUI.style.display = DisplayStyle.None;
     }
 
     private void OnOptionsButtonClick()
