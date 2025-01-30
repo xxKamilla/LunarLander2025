@@ -40,7 +40,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018905973809101571}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af45bf9967c64405958fa2d6802cfa34, type: 3}
   m_Name: 
@@ -48,8 +48,10 @@ MonoBehaviour:
   cameraFocus: 0
   cameraRotator: {fileID: 8632238277356953059}
   planet: {fileID: 0}
+  cam: {fileID: 0}
   spaceShip: {fileID: 4724393235492242539}
   followSpeed: 100
+  mouseSensitivity: 0.5
 --- !u!1 &3382555512523830881
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,6 +64,7 @@ GameObject:
   - component: {fileID: 5379049574982756509}
   - component: {fileID: 5370825970546902084}
   - component: {fileID: 6301088138948143348}
+  - component: {fileID: 816664328394252326}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -187,6 +190,33 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &816664328394252326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382555512523830881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54597893ed5fcc46bb93e0ba7e04229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 4724393235492242539}
+  targetOffset: {x: 0, y: 1, z: 0}
+  followSharpness: 555
+  orbitSpeed: 5
+  invertVertical: 0
+  minVerticalAngle: -9999
+  maxVerticalAngle: 9999
+  zoomSpeed: 5
+  minZoom: 2
+  maxZoom: 15
+  zoomSmoothness: 0.3
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  collisionOffset: 0.3
 --- !u!1 &4547366080725669098
 GameObject:
   m_ObjectHideFlags: 0
