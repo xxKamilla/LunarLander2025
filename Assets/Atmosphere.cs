@@ -7,7 +7,8 @@ using UnityEngine;
 /// </summary>
 public class Atmosphere : MonoBehaviour
 {
-    [SerializeField, Range(0f, 0.5f)] private float drag = 0.01f;
+    [SerializeField, Range(0f, 0.5f), Header("Atmosphere Settings"), Tooltip("Air resistance of the Atmosphere")]
+    private float drag = 0.01f;
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out IPhysicsObject physicsObject))
