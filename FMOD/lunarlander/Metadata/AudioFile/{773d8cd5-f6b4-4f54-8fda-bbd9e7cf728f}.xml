@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{773d8cd5-f6b4-4f54-8fda-bbd9e7cf728f}">
 		<property name="assetPath">
-			<value>446764__maxx222__rocketthrustmaxx.wav</value>
+			<value>rocketthrustmaxx.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
