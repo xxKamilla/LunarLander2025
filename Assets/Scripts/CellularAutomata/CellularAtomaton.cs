@@ -13,7 +13,8 @@ public class CellularAtomaton : MonoBehaviour
     public int[] outArray;
 
     public string[] pattern = { "111", "110", "101", "100", "011", "010", "001", "000" }; // ints representing a bit of information
-
+    public GameObject objPrefab;
+    public GameObject[] arrayPrefabs;
 
     public int generation;
     [Min(1)] public int gridWidth = 16;
@@ -21,7 +22,7 @@ public class CellularAtomaton : MonoBehaviour
     public bool click = true;
 
 
-
+    // creating an empty array and converting the rule from number to bits
     private void Start()
     {
         inArray = ByteToRuleConverter(ruleNumb);
@@ -29,6 +30,7 @@ public class CellularAtomaton : MonoBehaviour
 
     }
 
+    // when pressing click iterate the  generation
     private void Update()
     {
         if (click == true)
@@ -91,7 +93,7 @@ public class CellularAtomaton : MonoBehaviour
             nextGen[i] = Rule(strCompare);
         }
 
-        //outArray = nextGen;
+        //ObjectPlacement();
         
         return nextGen;
 
@@ -102,6 +104,16 @@ public class CellularAtomaton : MonoBehaviour
     {
 
         //place objects within scene
+
+        for (int i = 0; i < gridWidth; i++)
+        {
+
+        }
+
+
+
+
+        
     }
 
 
