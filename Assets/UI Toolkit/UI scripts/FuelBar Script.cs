@@ -7,7 +7,7 @@ public class FuelBarScript : MonoBehaviour
 {
     private ProgressBar _fuelBar;
     public float fuelLevel = 100; //make the highes value for the fuel
-    public float fuelLowerAmount = 10; //How much will be consumed 
+    public float fuelLowerAmount = 5; //How much will be consumed 
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,7 @@ public class FuelBarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //testing if UI work
         if(Input.GetKeyDown(KeyCode.Space))
         {
             fuelLevel -= fuelLowerAmount;
@@ -32,16 +33,15 @@ public class FuelBarScript : MonoBehaviour
 
     void Updatefuel (float value)
     {
-        //linking value from Uitoolkit
+        //link the fuelbar value UI
         _fuelBar.value = value;
 
-        _fuelBar.RemoveFromClassList("low");
-        _fuelBar.RemoveFromClassList("normal");
 
         //if fuel is less then 25 it will turn red if not it will be normal green
         if (value <= 25)
         {
             _fuelBar.AddToClassList("low");
+            Debug.Log("Low fuel");
         }
 
         else

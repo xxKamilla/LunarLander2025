@@ -11,13 +11,13 @@
     background-color: rgb(155, 206, 122);
 }
 
-.low {
+.low .unity-progress-bar__progress{
 
 background-color: rgb(237, 34, 36)
 
 }
 
-.normal {
+.normal ..unity-progress-bar__progress {
 
 background-color: rgb(155, 206, 122);
 
