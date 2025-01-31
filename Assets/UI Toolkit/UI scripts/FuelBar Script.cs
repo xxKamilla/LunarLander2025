@@ -14,7 +14,7 @@ public class FuelBarScript : MonoBehaviour
     {
         //connecting and getting the root to UI Toolkit document 
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
-        _fuelBar = root.Q<ProgressBar>("FuelBar");
+        _fuelBar = root.Q<ProgressBar>("Fuelbar");
 
         Updatefuel(fuelLevel); 
     }
@@ -22,13 +22,21 @@ public class FuelBarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            fuelLevel -= fuelLowerAmount;
+            Updatefuel(fuelLevel);
+        }
+           
     }
 
     void Updatefuel (float value)
     {
         //linking value from Uitoolkit
         _fuelBar.value = value;
+
+        _fuelBar.RemoveFromClassList("low");
+        _fuelBar.RemoveFromClassList("normal");
 
         //if fuel is less then 25 it will turn red if not it will be normal green
         if (value <= 25)
