@@ -26,8 +26,8 @@ public class LandingPad : MonoBehaviour
         center = transform.position;
         landing = other.transform.position;
         // when called checking the current position of the landingpad and the spaceship
-
         
+
         if (Vector3.Distance(center, landing) == 0)
         {
             precision = 500;
@@ -40,11 +40,16 @@ public class LandingPad : MonoBehaviour
         if (precision >500)
         {
             precision = 500;
+
+            
         }
        
         Debug.Log("distance from center = " + (int)precision);
 
         //TODO: Send Score to GameManager
+
+        //TODO:Stop the player from moving, End the game
+
         return (int)precision;
     }
 

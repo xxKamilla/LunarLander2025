@@ -20,7 +20,7 @@ public class Hull : MonoBehaviour
     /// </summary>
 
 
-    
+    public ParticleSystem[] explosion;
 
     public int maxHealth;
     public int remainingHealth;
@@ -34,6 +34,8 @@ public class Hull : MonoBehaviour
     private void Awake()
     {
         gravity = GetComponent<Gravity>(); // should be changed to the active gravity script
+
+        
     }
 
 
@@ -113,7 +115,7 @@ public class Hull : MonoBehaviour
         {
             dmg = 0;
         }
-        else if (dmg > 0) // making sure that the value is always positive
+        else if (dmg > 0) // making sure that the value is always negative
         {
             dmg *= -1;
             dmg += fallGrace;
@@ -142,13 +144,20 @@ public class Hull : MonoBehaviour
         Debug.Log("Ship repaired");
     }
 
-    void Death()
+    public void Death()
     {
         //TODO : Play death animation / explosion
+       foreach(ParticleSystem ps in explosion)
+        { 
+            ps.Play(); 
+        }
+          
+        
         if (remainingHealth <= 0 & lives ==0)
         {
 
             Debug.Log("Game Over");
+
         }
         else
         {
@@ -158,6 +167,8 @@ public class Hull : MonoBehaviour
             {
                 lives -= 1;
                 remainingHealth = maxHealth; // resetting health after losing a life
+                //TODO: Restart game from last save ?
+                // or reset position 
             }
         }
 
