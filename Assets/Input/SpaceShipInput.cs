@@ -31,7 +31,7 @@ public partial class @SpaceShipInput: IInputActionCollection2, IDisposable
                     ""name"": ""ShipRotation"",
                     ""type"": ""PassThrough"",
                     ""id"": ""b13c3765-0b8a-47d5-b59b-c1d73e6f619b"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -40,7 +40,16 @@ public partial class @SpaceShipInput: IInputActionCollection2, IDisposable
                     ""name"": ""CameraRotation"",
                     ""type"": ""Value"",
                     ""id"": ""c7d20b60-746e-4ce6-acce-552928975e4c"",
-                    ""expectedControlType"": ""Delta"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""Value"",
+                    ""id"": ""52590da5-c16b-4895-b18e-48cd4467b72a"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -132,6 +141,17 @@ public partial class @SpaceShipInput: IInputActionCollection2, IDisposable
                     ""action"": ""ShipThrust"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4ee554d3-2165-48e3-96a1-a2091a9c06f2"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -142,6 +162,7 @@ public partial class @SpaceShipInput: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_ShipRotation = m_Gameplay.FindAction("ShipRotation", throwIfNotFound: true);
         m_Gameplay_CameraRotation = m_Gameplay.FindAction("CameraRotation", throwIfNotFound: true);
+        m_Gameplay_Zoom = m_Gameplay.FindAction("Zoom", throwIfNotFound: true);
         m_Gameplay_ShipThrust = m_Gameplay.FindAction("ShipThrust", throwIfNotFound: true);
     }
 
@@ -211,6 +232,7 @@ public partial class @SpaceShipInput: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_ShipRotation;
     private readonly InputAction m_Gameplay_CameraRotation;
+    private readonly InputAction m_Gameplay_Zoom;
     private readonly InputAction m_Gameplay_ShipThrust;
     public struct GameplayActions
     {
@@ -218,6 +240,7 @@ public partial class @SpaceShipInput: IInputActionCollection2, IDisposable
         public GameplayActions(@SpaceShipInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @ShipRotation => m_Wrapper.m_Gameplay_ShipRotation;
         public InputAction @CameraRotation => m_Wrapper.m_Gameplay_CameraRotation;
+        public InputAction @Zoom => m_Wrapper.m_Gameplay_Zoom;
         public InputAction @ShipThrust => m_Wrapper.m_Gameplay_ShipThrust;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
@@ -234,6 +257,9 @@ public partial class @SpaceShipInput: IInputActionCollection2, IDisposable
             @CameraRotation.started += instance.OnCameraRotation;
             @CameraRotation.performed += instance.OnCameraRotation;
             @CameraRotation.canceled += instance.OnCameraRotation;
+            @Zoom.started += instance.OnZoom;
+            @Zoom.performed += instance.OnZoom;
+            @Zoom.canceled += instance.OnZoom;
             @ShipThrust.started += instance.OnShipThrust;
             @ShipThrust.performed += instance.OnShipThrust;
             @ShipThrust.canceled += instance.OnShipThrust;
@@ -247,6 +273,9 @@ public partial class @SpaceShipInput: IInputActionCollection2, IDisposable
             @CameraRotation.started -= instance.OnCameraRotation;
             @CameraRotation.performed -= instance.OnCameraRotation;
             @CameraRotation.canceled -= instance.OnCameraRotation;
+            @Zoom.started -= instance.OnZoom;
+            @Zoom.performed -= instance.OnZoom;
+            @Zoom.canceled -= instance.OnZoom;
             @ShipThrust.started -= instance.OnShipThrust;
             @ShipThrust.performed -= instance.OnShipThrust;
             @ShipThrust.canceled -= instance.OnShipThrust;
@@ -271,6 +300,7 @@ public partial class @SpaceShipInput: IInputActionCollection2, IDisposable
     {
         void OnShipRotation(InputAction.CallbackContext context);
         void OnCameraRotation(InputAction.CallbackContext context);
+        void OnZoom(InputAction.CallbackContext context);
         void OnShipThrust(InputAction.CallbackContext context);
     }
 }
