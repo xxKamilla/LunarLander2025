@@ -23,15 +23,16 @@ public class FuelBarScript : MonoBehaviour
     void Update()
     {
         //testing if UI work
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            fuelLevel -= fuelLowerAmount;
-            Updatefuel(fuelLevel);
-        }
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    fuelLevel -= fuelLowerAmount;
+        //    Updatefuel(fuelLevel);
+        //}
            
+        // - Update: Commented out fuel level test after connecting Updatefuel method to actual Fuel Tank script - Paul 01.02.2025
     }
 
-    void Updatefuel (float value)
+    public void Updatefuel (float value)
     {
         //link the fuelbar value UI
         _fuelBar.value = value;

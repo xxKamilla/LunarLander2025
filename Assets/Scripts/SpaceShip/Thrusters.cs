@@ -53,7 +53,8 @@ public class Thrusters : MonoBehaviour
 
         if (currentThrust < targetThrust)
         {
-            currentThrust = Mathf.MoveTowards(currentThrust, targetThrust, thrustBuildRate * Time.deltaTime);
+            //currentThrust = Mathf.MoveTowards(currentThrust, targetThrust, thrustBuildRate * Time.deltaTime);
+            currentThrust = Mathf.Lerp(currentThrust, targetThrust, thrustBuildRate * Time.deltaTime);
             firePS.Play();
             smokePS.Play();
             bSmokePS.Play();
@@ -65,12 +66,17 @@ public class Thrusters : MonoBehaviour
         else if (!Input.GetKey(KeyCode.Space))
         {
             currentThrust = Mathf.MoveTowards(currentThrust, targetThrust, thrustDecayRate * Time.deltaTime);
-            //firePS.Stop();
-            //smokePS.Stop();
-            //bSmokePS.Stop();
-            psFireEmission.rateOverTime = currentThrust / maxThrust * 500;
-            psSmokeEmission.rateOverTime = currentThrust / maxThrust * 50;
-            psBSmokeEmission.rateOverTime = currentThrust / maxThrust * 50;
+            firePS.Stop();
+            smokePS.Stop();
+            bSmokePS.Stop();
+
+            #region Unused Thruster Particle Decay
+            //Following lines of code used to control thruster particle decay, but decided to go with full-stop as soon as thrust input ends as it looks better. - Paul
+            //psFireEmission.rateOverTime = currentThrust / maxThrust * 500;
+            //psSmokeEmission.rateOverTime = currentThrust / maxThrust * 50;
+            //psBSmokeEmission.rateOverTime = currentThrust / maxThrust * 50;
+            #endregion
+
         }
         //<JK>
         gravity.thrust = transform.up * currentThrust;
