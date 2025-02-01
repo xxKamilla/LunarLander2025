@@ -779,6 +779,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3326651441179170429, guid: bdf812d52d9232a4b993ee0e73bdafca,
         type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3326651441179170429, guid: bdf812d52d9232a4b993ee0e73bdafca,
+        type: 3}
       propertyPath: InheritVelocityModule.enabled
       value: 1
       objectReference: {fileID: 0}
@@ -789,6 +794,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4268694903973358182, guid: bdf812d52d9232a4b993ee0e73bdafca,
         type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268694903973358182, guid: bdf812d52d9232a4b993ee0e73bdafca,
+        type: 3}
       propertyPath: InheritVelocityModule.enabled
       value: 1
       objectReference: {fileID: 0}
@@ -797,6 +807,16 @@ PrefabInstance:
       propertyPath: InheritVelocityModule.m_Curve.scalar
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5185156414454146126, guid: bdf812d52d9232a4b993ee0e73bdafca,
+        type: 3}
+      propertyPath: fuelBarUI
+      value: 
+      objectReference: {fileID: 880375417}
+    - target: {fileID: 5715692498424075856, guid: bdf812d52d9232a4b993ee0e73bdafca,
+        type: 3}
+      propertyPath: firePS
+      value: 
+      objectReference: {fileID: 3040565500029417066}
     - target: {fileID: 5715692498424075856, guid: bdf812d52d9232a4b993ee0e73bdafca,
         type: 3}
       propertyPath: gravity
@@ -806,6 +826,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxThrust
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5715692498424075856, guid: bdf812d52d9232a4b993ee0e73bdafca,
+        type: 3}
+      propertyPath: fuelEfficiency
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5715692498424075856, guid: bdf812d52d9232a4b993ee0e73bdafca,
         type: 3}
@@ -859,6 +884,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8579387208446542460, guid: bdf812d52d9232a4b993ee0e73bdafca,
         type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579387208446542460, guid: bdf812d52d9232a4b993ee0e73bdafca,
+        type: 3}
       propertyPath: InheritVelocityModule.enabled
       value: 1
       objectReference: {fileID: 0}
@@ -884,6 +914,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1428332721}
   m_SourcePrefab: {fileID: 100100000, guid: bdf812d52d9232a4b993ee0e73bdafca, type: 3}
+--- !u!198 &3040565500029417066 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4268694903973358182, guid: bdf812d52d9232a4b993ee0e73bdafca,
+    type: 3}
+  m_PrefabInstance: {fileID: 3040565500029417065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

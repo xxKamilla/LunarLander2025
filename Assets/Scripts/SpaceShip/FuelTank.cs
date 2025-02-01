@@ -1,6 +1,8 @@
 using UnityEngine;
 /// <summary>
 /// Read fuel and Burn fuel.
+/// 
+/// Update 01.02.2025 - Paul adding a reference to FuelBar Script (UI) script + Calling method to update UI fuel level to the actual fuel level.
 /// </summary>
 public class FuelTank : MonoBehaviour
 {
@@ -8,8 +10,7 @@ public class FuelTank : MonoBehaviour
     
     public float maxFuel;
     public float currentFuel;
-   
-    
+    public FuelBarScript fuelBarUI;
     
     // Start is called before the first frame update
     void Start()
@@ -28,12 +29,14 @@ public class FuelTank : MonoBehaviour
         if (currentFuel > 0)
         {
             currentFuel -= burnRate;
-            return true;   
+            fuelBarUI.Updatefuel(currentFuel);
+            return true; 
         }
         else
         {
             return false;
         }
+
     }
     //public float FuelUpgrade(float upgradeAmount)
     //{
