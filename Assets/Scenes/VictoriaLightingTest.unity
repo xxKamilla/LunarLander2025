@@ -6652,6 +6652,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: blur effect
       objectReference: {fileID: 0}
+    - target: {fileID: 6878182151012551512, guid: f0a82bc7692a7f54e84b1cf6ca5a2c5f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7737324296192925805, guid: f0a82bc7692a7f54e84b1cf6ca5a2c5f,
         type: 3}
       propertyPath: m_Pivot.x
